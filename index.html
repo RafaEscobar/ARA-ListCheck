@@ -1,12 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="shortcut icon" href="public/checkIcon.png" type="image/x-icon">
+  <title>ARA ListCheck</title>
 </head>
-<body class="">
-  <h1 class="text-3xl text-gray-500">Mi día</h1>
+<body>
+  <div class="m-12 shadow-2xl rounded-xl">
+    <div class="bg-[#c8ffff] h-screen w-full rounded-xl">
+      <div class="flex flex-wrap py-4 px-8 justify-between bg-[#0063e0] text-white rounded-t-xl">
+        <div class="sm:w-auto text-center sm:text-left">
+          <h1 class="text-4xl">Mi dia ☀︎</h1>
+          <h2 class="text-lg">Fecha 00/00/00</h2>
+        </div>
+        <div class="w-auto flex gap-4 flex-wrap sm:mt-0 mt-4 justify-center">
+          <div class="flex flex-col items-center">
+            <span class="text-lg font-semibold">Tareas completadas:</span>
+            <span class="font-bold">0</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-lg font-semibold">Tareas pendientes:</span>
+            <span class="font-bold">0</span>
+          </div>
+        </div>
+      </div>
+      <div class="py-4 px-8">
+        <div class="flex items-center">
+          <div class="flex-initial w-11/12">
+            <input type="text" name="" id=""
+              class="w-full bg-[#c8ffff] focus:outline-none border-b-2 border-gray-400 text-2xl py-2" autofocus
+              maxlength="80" minlength="12">
+          </div>
+          <div class="flex-initial w-1/12 flex ml-4 flex-wrap md:flex-nowrap gap-x-2">
+            <a class="">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
+                stroke="currentColor" class="w-8 lg:w-12">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </a>
+            <a class="">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
+                stroke="currentColor" class="w-8 lg:w-12">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="relative px-8" data-te-dropdown-ref>
+        <button
+          class="font-mono flex items-center whitespace-nowrap rounded-2xl px-6 pb-2 pt-2.5 text-black transition duration-150 ease-in-out hover:bg-[#64ffff] hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-[#c8ffff] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-[#c8ffff] active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none"
+          type="button"
+          id="dropdownMenuButton1"
+          data-te-dropdown-toggle-ref
+          aria-expanded="false"
+          data-te-ripple-init
+          data-te-ripple-color="light">
+          <span class="mr-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
+            </svg>            
+          </span>
+          Filtros
+        </button>
+        <ul
+          class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-[#c8ffff] bg-clip-padding text-left text-base shadow-lg  [&[data-te-dropdown-show]]:block"
+          aria-labelledby="dropdownMenuButton1"
+          data-te-dropdown-menu-ref>
+          <li>
+            <a
+              class="block w-full whitespace-nowrap px-4 py-2 text-sm text-black hover:bg-[#64ffff] active:text-black active:no-underline disabled:text-black font-mono"
+              href="#"
+              data-te-dropdown-item-ref
+              >Todos</a
+            >
+          </li>
+          <li>
+            <a
+              class="block w-full whitespace-nowrap px-4 py-2 text-sm text-black hover:bg-[#64ffff] active:text-black active:no-underline disabled:text-black font-mono"
+              href="#"
+              data-te-dropdown-item-ref
+              >Pendientes</a
+            >
+          </li>
+          <li>
+            <a
+              class="block w-full whitespace-nowrap px-4 py-2 text-sm text-black hover:bg-[#64ffff] active:text-black active:no-underline disabled:text-black font-mono"
+              href="#"
+              data-te-dropdown-item-ref
+              >Completados</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
   <script type="module" src="/main.js"></script>
 </body>
 </html>
