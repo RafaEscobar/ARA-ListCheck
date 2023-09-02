@@ -1,13 +1,18 @@
-/**
- * Imports
- */
-import myStore from "../storage/store";
+// Imports
+import myStore from '../storage/store';
 
+// Collection of html elements id's 
 const idsCollection = {
     dateElement: '#dateToday'
-}
+};
 
+/**
+ * Main function
+ * @param void
+ * @return void
+ */
 export const app = () => {
+    // Self invoked function
     (()=>{
     
     })();
@@ -18,4 +23,4 @@ export const app = () => {
 
     // Functions
 
-}
+};
