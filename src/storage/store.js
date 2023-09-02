@@ -1,5 +1,5 @@
 // Variable to get todat date
-const dateTotay = new Date();
+const todayDate = new Date();
 
 /**
  * Initialization function
@@ -13,6 +13,6 @@ const initStore = () => {
 
 // Default exports (Functions and variables)
 export default {
-    dateTotay,
+    todayDate,
     initStore,
 };

@@ -1,8 +1,10 @@
 // Imports
 import myStore from '../storage/store';
 
+import { setTodayDate } from './useCases/';
+
 // Collection of html elements id's 
-const idsCollection = {
+export const idCollection = {
     dateElement: '#dateToday'
 };
 
@@ -12,15 +14,17 @@ const idsCollection = {
  * @return void
  */
 export const app = () => {
+
     // Self invoked function
     (()=>{
-    
+        setTodayDate(idCollection.dateElement);
     })();
 
 
     // References to elements
-    const elementDate = document.querySelector(idsCollection.dateElement);
+
 
     // Functions
+
 
 };
