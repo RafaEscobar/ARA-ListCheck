@@ -1,8 +1,21 @@
+/**
+ * Imports
+ */
 import myStore from "../storage/store";
+
+const idsCollection = {
+    dateElement: '#dateToday'
+}
 
 export const app = () => {
     (()=>{
-        console.log(myStore.dateTotay.toLocaleDateString());
-        myStore.initStore();
+    
     })();
+
+
+    // References to elements
+    const elementDate = document.querySelector(idsCollection.dateElement);
+
+    // Functions
+
 }
