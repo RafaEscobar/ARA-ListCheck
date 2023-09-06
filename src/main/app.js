@@ -1,14 +1,12 @@
 //! Imports
-import { setTodayDate, htmlRenders } from './useCases/';
+import { setTodayDate } from './useCases/';
 import myStore from '../storage/store';
 
 //* Collection of html elements id's 
 export const idCollection = {
-    headerId: '#header',
-    inputSectionId: '#inputSection',
-    dropdownId: '#dropdown',
     dateElement: '#dateToday',
     inputTask: '#inputTask',
+    contentId: '#content'
 };
 
 /**
@@ -20,7 +18,6 @@ export const app = () => {
 
     //* Self invoked function
     (()=>{
-        htmlRenders(idCollection.headerId, idCollection.inputSectionId, idCollection.dropdownId);
         setTodayDate(idCollection.dateElement);
     })();
 
