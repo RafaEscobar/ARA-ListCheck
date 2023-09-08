@@ -1,12 +1,13 @@
 //! Imports
-import { setTodayDate } from './useCases/';
+import { setTodayDate, renderTasks } from './useCases/';
 import myStore from '../storage/store';
 
 //* Collection of html elements id's 
 export const idCollection = {
     dateElement: '#dateToday',
     inputTask: '#inputTask',
-    contentId: '#content'
+    contentId: '#content',
+    contentTaskId: '#contentTask'
 };
 
 /**
@@ -33,6 +34,6 @@ export const app = () => {
         if ( inputTask.value.trim().length == 0 ) return;
         
         myStore.setTaskState(inputTask.value);
-        console.log(myStore.getState());
+        renderTasks(idCollection.contentTaskId);
     });
 };
