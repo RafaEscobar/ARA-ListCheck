@@ -1,3 +1,5 @@
+//!Imports
+import { v4 as identifier } from 'uuid';
 
 //! Model class for Tasks
 export class Task {
@@ -7,7 +9,7 @@ export class Task {
      * @param {string|null} time 
      */
     constructor(description, time = null){
-        this.id = 1;
+        this.id = identifier();
         this.description = description;
         this.done = false;
         this.time = time;

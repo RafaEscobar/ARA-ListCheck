@@ -35,5 +35,6 @@ export const app = () => {
         if ( inputDescriptionTask.value.trim().length == 0 ) return;
         
         myStore.createTask(inputDescriptionTask.value);
+        renderTasks(idCollection.contentTaskId, myStore.getAllTask())
     });
 };

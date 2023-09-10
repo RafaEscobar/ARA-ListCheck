@@ -21,6 +21,7 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
-    "tw-elements": "^1.0.0-rc.1"
+    "tw-elements": "^1.0.0-rc.1",
+    "uuid": "^9.0.0"
   }
 }
