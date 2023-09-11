@@ -40,16 +40,23 @@ const getState = () => {
  * 
  * @param {string} description - Task description
  * @param {string|null} time - Time to task
+ * 
  * @return void
  */
 const createTask = (description, time = null) => {
     state.tasks.push( new Task(description, time) );
 }
 
+/**
+ * Function to get task based on current filter
+ * 
+ * @param {filters} filter - Current filter (State)
+ * 
+ * @return void
+ */
 const getAllTask = (filter = filters.All) => {
     return state.tasks;
 }
-
 
 //* Default exports (Functions and variables)
 export default {

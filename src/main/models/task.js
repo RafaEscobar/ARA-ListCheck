@@ -1,12 +1,13 @@
-//!Imports
+// Imports
 import { v4 as identifier } from 'uuid';
 
 //! Model class for Tasks
 export class Task {
     /**
      * Constructor class
-     * @param {string} description 
-     * @param {string|null} time 
+     * 
+     * @param {string} description - Task description
+     * @param {string|null} time - Task deadline
      */
     constructor(description, time = null){
         this.id = identifier();

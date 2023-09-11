@@ -1,5 +1,13 @@
+// Global variables
 let content;
 
+/**
+ * Function to generate html task structure for each task
+ * 
+ * @param {elemetArray} task - Each element of the tasks array
+ * 
+ * @return contentTask - The html structure of the constructed task
+ */
 const generateContentTask = (task) => {
     const contentTask = document.createElement('div');
     contentTask.innerHTML = `
@@ -15,22 +23,28 @@ const generateContentTask = (task) => {
             </label>
         </div>`
     contentTask.setAttribute('data-id', task.id);
+
     return contentTask;
 }
 
+/**
+ * Generating function of the tasks rendering 
+ * 
+ * @param {htmlId} contentTaskId - Identifier of the html container of the tasks
+ * @param {array} tasks - Task array
+ * 
+ * @return void
+ */
 export const renderTasks = (contentTaskId, tasks = []) => {
-    
     if (!contentTaskId)
         throw new Error('No hay un Id para el contenedor de las tareas');
     if (tasks.length == 0) 
         throw new Error('No hay tareas que mostrar...');
     
     content = document.querySelector(contentTaskId);
-
     content.innerHTML = '';
     
     tasks.forEach( task => {
         content.append( generateContentTask(task) );
     });
-
 }

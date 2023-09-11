@@ -1,4 +1,4 @@
-//! Imports
+// Imports
 import { setTodayDate, renderTasks } from './useCases/';
 import myStore from '../storage/store';
 
@@ -35,6 +35,7 @@ export const app = () => {
         if ( inputDescriptionTask.value.trim().length == 0 ) return;
         
         myStore.createTask(inputDescriptionTask.value);
-        renderTasks(idCollection.contentTaskId, myStore.getAllTask())
+        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
+        inputDescriptionTask.value = null;
     });
 };
