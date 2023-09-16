@@ -7,7 +7,8 @@ export const idCollection = {
     dateElement: '#dateToday',
     inputTask: '#inputTask',
     contentId: '#content',
-    contentTaskId: '#contentTask'
+    contentTaskId: '#contentTask',
+    addBtn: '#addBtn',
 };
 
 /**
@@ -25,6 +26,7 @@ export const app = () => {
 
     //! References to elements
     let inputDescriptionTask = document.querySelector(idCollection.inputTask);
+    let addBtn = document.querySelector(idCollection.addBtn);
 
     //! Functions
 
@@ -38,4 +40,14 @@ export const app = () => {
         renderTasks(idCollection.contentTaskId, myStore.getAllTask());
         inputDescriptionTask.value = null;
     });
+
+    //* Click event for addBtn - Create a new task in state.tasks
+    addBtn.addEventListener('click', (event) => {
+        if ( inputTask.value.trim().length == 0 ) return;
+
+        myStore.createTask(inputDescriptionTask.value);
+        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
+        inputDescriptionTask.value = null;
+    })
+
 };
