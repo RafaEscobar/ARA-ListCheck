@@ -27,12 +27,15 @@ const initStore = () => {
 };
 
 /**
- * Get LocalStorage
+ * Pass Tasks from LocalStorage to State
  * 
  * @return void
  */
-const getLocalStorage = () => {
-    console.log(localStorage.getItem('state'));
+const renderLocalStorage = () => {
+    if ( !localStorage.getItem('state') ) return;
+    const { tasks, filter } = JSON.parse(localStorage.getItem('state'));
+    state.tasks = tasks;
+    state.filter = filter;
 }
 
 /**
@@ -42,9 +45,8 @@ const getLocalStorage = () => {
  */
 const setLocalStorage = () => {
     localStorage.setItem('state', JSON.stringify(state));
-    getLocalStorage()
+    renderLocalStorage();
 }
-
 
 /**
  * Function to get all state
@@ -86,5 +88,6 @@ export default {
     getState,
     createTask,
     getAllTask,
-    getLocalStorage,
+    renderLocalStorage,
+    
 };

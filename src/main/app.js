@@ -20,8 +20,12 @@ export const app = () => {
 
     //* Self invoked function
     (()=>{
+        //* Set the date today
         setTodayDate(idCollection.dateElement);
-        myStore.getLocalStorage();
+        //* Pass the tasks in the LocalStorage to state
+        myStore.renderLocalStorage();
+        //* Rendering the tasks in the state which in turn come from LocalStorage
+        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
     })();
 
     //! References to elements
