@@ -10,15 +10,38 @@
     transform: translate3d(0, 0, 0);
 }
 
-.checkbox-wrapper-15 .cbx span:first-child {
-    position: relative;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    transform: scale(1);
-    vertical-align: middle;
-    border: 1px solid #00cbff;
-    transition: all 0.2s ease;
+@media screen and (max-width: 480px) {
+    .checkbox-wrapper-15 .cbx span:first-child {
+        position: relative;
+        width: 28px;   
+        height: 28px;
+        border-radius: 50%;
+        transform: scale(1);
+        vertical-align: middle;
+        border: 1px solid #00cbff;
+        transition: all 0.2s ease;
+    }
+    .checkIcon {
+        width: 14px;
+        height: 12px;
+    }
+}
+
+@media screen and (min-width: 481px) {
+    .checkbox-wrapper-15 .cbx span:first-child {
+        position: relative;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        transform: scale(1);
+        vertical-align: middle;
+        border: 1px solid #00cbff;
+        transition: all 0.2s ease;
+    }
+    .checkIcon {
+        width: 23px;
+        height: 23px;
+    }
 }
 
 .checkbox-wrapper-15 .cbx span:first-child svg {

@@ -15,11 +15,11 @@ const generateContentTask = (task) => {
             <input class="inp-cbx" id="${task.id}" type="checkbox" style="display: none;" />
             <label class="cbx" for="${task.id}">
               <span class="inline-block">
-                <svg width="23px" height="23px" viewbox="0 0 12 9">
+                <svg viewbox="0 0 12 9" class="checkIcon">
                   <polyline points="1 5 4 8 11 1"></polyline>
                 </svg>
               </span>
-              <span class="font-mono text-xl">${task.description}</span>
+              <span class="font-mono text-lg md:text-xl">${task.description}</span>
             </label>
         </div>`
     contentTask.setAttribute('data-id', task.id);
