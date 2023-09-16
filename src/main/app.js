@@ -21,7 +21,7 @@ export const app = () => {
     //* Self invoked function
     (()=>{
         setTodayDate(idCollection.dateElement);
-        
+        myStore.getLocalStorage();
     })();
 
     //! References to elements
