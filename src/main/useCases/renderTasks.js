@@ -19,7 +19,7 @@ const generateContentTask = (task) => {
                   <polyline points="1 5 4 8 11 1"></polyline>
                 </svg>
               </span>
-              <span class="font-mono text-2xl">${task.description}</span>
+              <span class="font-mono text-xl">${task.description}</span>
             </label>
         </div>`
     contentTask.setAttribute('data-id', task.id);
