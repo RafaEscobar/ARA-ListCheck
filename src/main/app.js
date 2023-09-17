@@ -9,6 +9,7 @@ export const idCollection = {
     contentId: '#content',
     contentTaskId: '#contentTask',
     addBtn: '#addBtn',
+    deleteBtn: '#deleteBtn',
 };
 
 /**
@@ -31,6 +32,7 @@ export const app = () => {
     //! References to elements
     let inputDescriptionTask = document.querySelector(idCollection.inputTask);
     let addBtn = document.querySelector(idCollection.addBtn);
+    let deleteBtn = document.querySelector(idCollection.deleteBtn);
 
     //! Functions
 
@@ -52,6 +54,10 @@ export const app = () => {
         myStore.createTask(inputDescriptionTask.value);
         renderTasks(idCollection.contentTaskId, myStore.getAllTask());
         inputDescriptionTask.value = null;
-    })
+    });
+
+    deleteBtn.addEventListener('click', (event) => {
+        console.log("Holis");
+    });
 
 };
