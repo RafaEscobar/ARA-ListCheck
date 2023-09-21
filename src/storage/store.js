@@ -10,7 +10,9 @@ const filters = {
 
 //* Global state, includes: tasks and filter
 const state = {
-    tasks: [],
+    tasks: [
+        new Task("Aprender inglés"),
+    ],
     filter: filters.All
 }
 
@@ -25,6 +27,27 @@ const todayDate = new Date();
 const initStore = () => {
     console.log('Store inicializado...');
 };
+
+/**
+ * Pass Tasks from LocalStorage to State
+ * 
+ * @return void
+ */
+const initLocalStorage = () => {
+    if ( !localStorage.getItem('state') ) return;
+    const { tasks, filter } = JSON.parse(localStorage.getItem('state'));
+    state.tasks = tasks;
+    state.filter = filter;
+}
+
+/**
+ * Set LocalStorage based to variable "state"
+ * 
+ * @return void
+ */
+const setLocalStorage = () => {
+    localStorage.setItem('state', JSON.stringify(state));
+}
 
 /**
  * Function to get all state
@@ -45,6 +68,12 @@ const getState = () => {
  */
 const createTask = (description, time = null) => {
     state.tasks.push( new Task(description, time) );
+    setLocalStorage();
+}
+
+const deleteTask = (taskId) => {
+    state.tasks = state.tasks.filter( task => task.id != taskId );
+    setLocalStorage();
 }
 
 /**
@@ -64,5 +93,7 @@ export default {
     initStore,
     getState,
     createTask,
+    deleteTask,
     getAllTask,
+    initLocalStorage,
 };

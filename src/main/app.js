@@ -9,6 +9,7 @@ export const idCollection = {
     contentId: '#content',
     contentTaskId: '#contentTask',
     addBtn: '#addBtn',
+    deleteBtn: '#deleteBtn',
 };
 
 /**
@@ -20,13 +21,18 @@ export const app = () => {
 
     //* Self invoked function
     (()=>{
+        //* Set the date today
         setTodayDate(idCollection.dateElement);
-        
+        //* Pass the tasks in the LocalStorage to state
+        myStore.initLocalStorage();
+        //* Rendering the tasks in the state which in turn come from LocalStorage
+        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
     })();
 
     //! References to elements
     let inputDescriptionTask = document.querySelector(idCollection.inputTask);
     let addBtn = document.querySelector(idCollection.addBtn);
+    let contentTask = document.querySelector(idCollection.contentTaskId);
 
     //! Functions
 
@@ -48,6 +54,13 @@ export const app = () => {
         myStore.createTask(inputDescriptionTask.value);
         renderTasks(idCollection.contentTaskId, myStore.getAllTask());
         inputDescriptionTask.value = null;
-    })
+    });
+
+    contentTask.addEventListener('click', (event) => {
+        if ( event.target.id != 'deleteBtn' ) return;
+        let elementTask = event.target.closest('[data-id]');
+        myStore.deleteTask(elementTask.getAttribute('data-id'));
+        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
+    });
 
 };
