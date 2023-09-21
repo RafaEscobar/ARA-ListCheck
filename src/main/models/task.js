@@ -14,6 +14,6 @@ export class Task {
         this.description = description;
         this.done = false;
         this.time = time;
-        this.createAt = new Date()
+        this.createAt = new Date();
     }
 }

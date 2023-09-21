@@ -10,7 +10,9 @@ const filters = {
 
 //* Global state, includes: tasks and filter
 const state = {
-    tasks: [],
+    tasks: [
+        new Task("Aprender inglés"),
+    ],
     filter: filters.All
 }
 

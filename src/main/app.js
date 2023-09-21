@@ -60,7 +60,7 @@ export const app = () => {
         if ( event.target.id != 'deleteBtn' ) return;
         let elementTask = event.target.closest('[data-id]');
         myStore.deleteTask(elementTask.getAttribute('data-id'));
-        
+        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
     });
 
 };
