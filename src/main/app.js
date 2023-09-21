@@ -24,7 +24,7 @@ export const app = () => {
         //* Set the date today
         setTodayDate(idCollection.dateElement);
         //* Pass the tasks in the LocalStorage to state
-        myStore.renderLocalStorage();
+        myStore.initLocalStorage();
         //* Rendering the tasks in the state which in turn come from LocalStorage
         renderTasks(idCollection.contentTaskId, myStore.getAllTask());
     })();
@@ -32,7 +32,7 @@ export const app = () => {
     //! References to elements
     let inputDescriptionTask = document.querySelector(idCollection.inputTask);
     let addBtn = document.querySelector(idCollection.addBtn);
-    let deleteBtn = document.querySelector(idCollection.deleteBtn);
+    let contentTask = document.querySelector(idCollection.contentTaskId);
 
     //! Functions
 
@@ -56,8 +56,11 @@ export const app = () => {
         inputDescriptionTask.value = null;
     });
 
-    deleteBtn.addEventListener('click', (event) => {
-        console.log("Holis");
+    contentTask.addEventListener('click', (event) => {
+        if ( event.target.id != 'deleteBtn' ) return;
+        let elementTask = event.target.closest('[data-id]');
+        myStore.deleteTask(elementTask.getAttribute('data-id'));
+        
     });
 
 };

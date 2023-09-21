@@ -31,7 +31,7 @@ const initStore = () => {
  * 
  * @return void
  */
-const renderLocalStorage = () => {
+const initLocalStorage = () => {
     if ( !localStorage.getItem('state') ) return;
     const { tasks, filter } = JSON.parse(localStorage.getItem('state'));
     state.tasks = tasks;
@@ -45,7 +45,6 @@ const renderLocalStorage = () => {
  */
 const setLocalStorage = () => {
     localStorage.setItem('state', JSON.stringify(state));
-    renderLocalStorage();
 }
 
 /**
@@ -70,6 +69,11 @@ const createTask = (description, time = null) => {
     setLocalStorage();
 }
 
+const deleteTask = (taskId) => {
+    state.tasks = state.tasks.filter( task => task.id != taskId );
+    setLocalStorage();
+}
+
 /**
  * Function to get task based on current filter
  * 
@@ -87,7 +91,7 @@ export default {
     initStore,
     getState,
     createTask,
+    deleteTask,
     getAllTask,
-    renderLocalStorage,
-    
+    initLocalStorage,
 };
