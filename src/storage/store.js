@@ -71,6 +71,13 @@ const createTask = (description, time = null) => {
     setLocalStorage();
 }
 
+/**
+ * Function to check a task
+ * 
+ * @param {taskId} taskId -Identifier task
+ * 
+ * @return void
+ */
 const deleteTask = (taskId) => {
     state.tasks = state.tasks.filter( task => task.id != taskId );
     setLocalStorage();
