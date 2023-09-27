@@ -33,6 +33,7 @@ export const app = () => {
     let inputDescriptionTask = document.querySelector(idCollection.inputTask);
     let addBtn = document.querySelector(idCollection.addBtn);
     let contentTask = document.querySelector(idCollection.contentTaskId);
+    let elementTask;
 
     //! Functions
 
@@ -57,10 +58,18 @@ export const app = () => {
     });
 
     contentTask.addEventListener('click', (event) => {
-        if ( event.target.id != 'deleteBtn' ) return;
-        let elementTask = event.target.closest('[data-id]');
-        myStore.deleteTask(elementTask.getAttribute('data-id'));
-        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
+        
+        if ( event.target.id == 'deleteBtn' ) {
+            elementTask = event.target.closest('[data-id]');
+            myStore.deleteTask(elementTask.getAttribute('data-id'));
+            renderTasks(idCollection.contentTaskId, myStore.getAllTask());
+        } else if ( event.target.type == 'checkbox' ) {
+            elementTask = event.target.closest('[data-id]');
+            myStore.checkTask(elementTask.getAttribute('data-id'));
+        } else {
+            return;
+        }
+        
     });
 
 };
