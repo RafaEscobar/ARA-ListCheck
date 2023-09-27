@@ -13,7 +13,7 @@ const generateContentTask = (task) => {
     contentTask.innerHTML = `
         <div class="checkbox-wrapper-15 my-4 flex justify-between items-center">
             <div>
-                <input class="inp-cbx" id="${task.id}" type="checkbox" style="display: none;" />
+                <input class="inp-cbx" id="${task.id}" type="checkbox" style="display: none;" ${ task.done ? 'checked' : '' } />
                 <label class="cbx" for="${task.id}">
                   <span class="inline-block">
                     <svg viewbox="0 0 12 9" class="checkIcon">
