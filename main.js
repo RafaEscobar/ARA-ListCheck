@@ -10,5 +10,6 @@ app();
 // Call the initTE function for the Filters dropdown button
 initTE({ Dropdown, Ripple, Modal, Input, Timepicker });
 
+//* Variables for the TimePiker Input
 const picker = document.querySelector("#timepicker-format");
 const tpFormat24 = new Timepicker(picker, { format24: true, });
