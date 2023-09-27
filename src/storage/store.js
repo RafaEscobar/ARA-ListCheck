@@ -1,4 +1,4 @@
-//! Imports
+// Imports
 import { Task } from "../main/models";
 
 //* Object filters
