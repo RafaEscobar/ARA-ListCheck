@@ -57,8 +57,8 @@ export const app = () => {
         inputDescriptionTask.value = null;
     });
 
-    contentTask.addEventListener('click', (event) => {
-        
+    //* Click event for div container of the task, with this delete and/or check the task
+    contentTask.addEventListener('click', (event) => {        
         if ( event.target.id == 'deleteBtn' ) {
             elementTask = event.target.closest('[data-id]');
             myStore.deleteTask(elementTask.getAttribute('data-id'));
