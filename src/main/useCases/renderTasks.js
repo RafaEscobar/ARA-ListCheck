@@ -45,7 +45,6 @@ export const renderTasks = (contentTaskId, tasks = []) => {
     if (!contentTaskId)
         throw new Error('No hay un Id para el contenedor de las tareas');
     
-    
     content = document.querySelector(contentTaskId);
     content.innerHTML = '';
     

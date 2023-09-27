@@ -71,6 +71,14 @@ const createTask = (description, time = null) => {
     setLocalStorage();
 }
 
+const checkTask = (taskId) => {
+    state.tasks.forEach( task => {
+        if ( task.id == taskId ) 
+            task.done = !task.done;
+    });
+    setLocalStorage();
+}
+
 const deleteTask = (taskId) => {
     state.tasks = state.tasks.filter( task => task.id != taskId );
     setLocalStorage();
@@ -93,6 +101,7 @@ export default {
     initStore,
     getState,
     createTask,
+    checkTask,
     deleteTask,
     getAllTask,
     initLocalStorage,
