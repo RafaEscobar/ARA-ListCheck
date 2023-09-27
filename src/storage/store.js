@@ -71,6 +71,13 @@ const createTask = (description, time = null) => {
     setLocalStorage();
 }
 
+/**
+ * Function to check a task
+ * 
+ * @param {taskId} taskId -Identifier task
+ * 
+ * @return void
+ */
 const checkTask = (taskId) => {
     state.tasks.forEach( task => {
         if ( task.id == taskId ) 
