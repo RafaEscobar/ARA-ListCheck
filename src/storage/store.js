@@ -86,6 +86,13 @@ const checkTask = (taskId) => {
     setLocalStorage();
 }
 
+/**
+ * Function to delete a task
+ * 
+ * @param {taskId} taskId -Identifier task
+ * 
+ * @return void
+ */
 const deleteTask = (taskId) => {
     state.tasks = state.tasks.filter( task => task.id != taskId );
     setLocalStorage();
