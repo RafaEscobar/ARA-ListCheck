@@ -8,10 +8,6 @@ const filters = {
     Completed: 'Completed',
 }
 
-
-
-
-
 //* Global state, includes: tasks and filter
 const state = {
     tasks: [
