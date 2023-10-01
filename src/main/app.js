@@ -35,8 +35,6 @@ export const app = () => {
     let contentTask = document.querySelector(idCollection.contentTaskId);
     let elementTask;
 
-    //! Functions
-
     //! Event Listener
     //* Keydown event for inputTask - Create a new task in state.tasks
     inputTask.addEventListener('keydown', (event) => {
@@ -69,7 +67,6 @@ export const app = () => {
         } else {
             return;
         }
-        
     });
 
 };
