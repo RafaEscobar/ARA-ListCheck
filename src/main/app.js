@@ -10,6 +10,7 @@ export const idCollection = {
     contentTaskId: '#contentTask',
     addBtn: '#addBtn',
     deleteBtn: '#deleteBtn',
+    btnClock: '#btnClock',
 };
 
 /**
@@ -31,16 +32,22 @@ export const app = () => {
 
     //! References to elements
     let inputDescriptionTask = document.querySelector(idCollection.inputTask);
+    inputDescriptionTask.value = null;
     let addBtn = document.querySelector(idCollection.addBtn);
     let contentTask = document.querySelector(idCollection.contentTaskId);
     let elementTask;
+    let clockFlag = false;
+    let btnClock = document.querySelector(idCollection.btnClock);
+    btnClock.setAttribute('disabled', 'true');
 
     //! Event Listener
     //* Keydown event for inputTask - Create a new task in state.tasks
-    inputTask.addEventListener('keydown', (event) => {
-        if ( event.keyCode != 13 ) return;
+    inputTask.addEventListener('keyup', (event) => {
         if ( inputDescriptionTask.value.trim().length == 0 ) return;
-        
+        if ( inputDescriptionTask.value.trim().length > 4 ) {
+            btnClock.removeAttribute('disabled');
+        }
+        if ( event.keyCode != 13) return;
         myStore.createTask(inputDescriptionTask.value);
         renderTasks(idCollection.contentTaskId, myStore.getAllTask());
         inputDescriptionTask.value = null;
@@ -56,7 +63,7 @@ export const app = () => {
     });
 
     //* Click event for div container of the task, with this delete and/or check the task
-    contentTask.addEventListener('click', (event) => {        
+    contentTask.addEventListener('click', (event) => {  
         if ( event.target.id == 'deleteBtn' ) {
             elementTask = event.target.closest('[data-id]');
             myStore.deleteTask(elementTask.getAttribute('data-id'));
