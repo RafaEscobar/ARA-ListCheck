@@ -40,6 +40,23 @@ export const app = () => {
     let btnClock = document.querySelector(idCollection.btnClock);
     btnClock.setAttribute('disabled', 'true');
 
+
+    //! Functions
+    /**
+     * Function to execute the create Task flow
+     * 
+     * @param void
+     * 
+     * @return void
+     */
+    const flowToCreateTask = () => {
+        myStore.createTask(inputDescriptionTask.value);
+        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
+        inputDescriptionTask.value = null;
+        btnClock.setAttribute('disabled', 'true');
+    }
+
+
     //! Event Listener
     //* Keydown event for inputTask - Create a new task in state.tasks
     inputTask.addEventListener('keyup', (event) => {
@@ -47,23 +64,17 @@ export const app = () => {
         if ( inputDescriptionTask.value.trim().length > 4 ) {
             btnClock.removeAttribute('disabled');
         } else if (inputDescriptionTask.value.trim().length <= 4 ) {
-            console.log("Entre");
             btnClock.setAttribute('disabled', 'true');
         }
+        
         if ( event.keyCode != 13) return;
-        console.log("Jamas llegue aqui");
-        myStore.createTask(inputDescriptionTask.value);
-        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
-        inputDescriptionTask.value = null;
+        flowToCreateTask();
     });
 
     //* Click event for addBtn - Create a new task in state.tasks
     addBtn.addEventListener('click', (event) => {
         if ( inputTask.value.trim().length == 0 ) return;
-
-        myStore.createTask(inputDescriptionTask.value);
-        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
-        inputDescriptionTask.value = null;
+        flowToCreateTask();
     });
 
     //* Click event for div container of the task, with this delete and/or check the task
