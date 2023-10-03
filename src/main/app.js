@@ -46,8 +46,12 @@ export const app = () => {
         if ( inputDescriptionTask.value.trim().length == 0 ) return;
         if ( inputDescriptionTask.value.trim().length > 4 ) {
             btnClock.removeAttribute('disabled');
+        } else if (inputDescriptionTask.value.trim().length <= 4 ) {
+            console.log("Entre");
+            btnClock.setAttribute('disabled', 'true');
         }
         if ( event.keyCode != 13) return;
+        console.log("Jamas llegue aqui");
         myStore.createTask(inputDescriptionTask.value);
         renderTasks(idCollection.contentTaskId, myStore.getAllTask());
         inputDescriptionTask.value = null;
