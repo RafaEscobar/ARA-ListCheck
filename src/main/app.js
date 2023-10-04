@@ -100,6 +100,7 @@ export const app = () => {
         }
     });
 
+    //* Entry event for the modal timePicker
     inputTimePiker.addEventListener('input', () => {
         if ( inputTimePiker.value == '' ) return;
         btnSaveTime.removeAttribute('disabled');
