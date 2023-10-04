@@ -2,6 +2,8 @@
 import { setTodayDate, renderTasks } from './useCases/';
 import myStore from '../storage/store';
 import moment from 'moment'
+import 'moment/locale/es';
+moment.locale('es');
 
 //* Collection of html elements id's 
 export const idCollection = {
@@ -110,15 +112,10 @@ export const app = () => {
     //* Click event for the modal button, with which we save the time of the task
     btnSaveTime.addEventListener('click', () => {
         if ( inputTimePiker.value == '' || inputDescriptionTask.value == null ) return;
-        let myHour = moment().format('h:mm');
-        let timeTask = moment(`${inputTimePiker.value}:00`, "hh:mm:ss", true);
-        console.log(myHour, timeTask._i);
-        // flowToCreateTask(inputTimePiker.value);
+        flowToCreateTask(inputTimePiker.value);
     });
 
-
-    // let hora =`${nose.getHours()}:${nose.getMinutes()}`;
-    // moment(hora).add()
-
+    const myDate = moment();
+    console.log(myDate.format('LL'));
 
 };
