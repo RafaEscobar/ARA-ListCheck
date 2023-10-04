@@ -54,12 +54,12 @@ export const app = () => {
     /**
      * Function to execute the create Task flow
      * 
-     * @param void
+     * @param {string} time -Time of the task
      * 
      * @return void
      */
-    const flowToCreateTask = () => {
-        myStore.createTask(inputDescriptionTask.value);
+    const flowToCreateTask = (time = null) => {
+        myStore.createTask(inputDescriptionTask.value, time);
         renderTasks(idCollection.contentTaskId, myStore.getAllTask());
         inputDescriptionTask.value = null;
         btnClock.setAttribute('disabled', 'true');
@@ -109,7 +109,11 @@ export const app = () => {
     //* Click event for the modal button, with which we save the time of the task
     btnSaveTime.addEventListener('click', () => {
         if ( inputTimePiker.value == '' || inputDescriptionTask.value == null ) return;
-        console.log(inputTimePiker.value, inputDescriptionTask.value);
+        flowToCreateTask(inputTimePiker.value);
     });
+
+    let nose = new Date();
+    let hora =`${nose.getHours()}:${nose.getMinutes()}`;
+    moment(hora).add()
 
 };
