@@ -16,9 +16,6 @@ const state = {
     filter: filters.All
 }
 
-//* Variable to get todat date
-const todayDate = new Date();
-
 /**
  * Initialization function
  * 
@@ -111,7 +108,6 @@ const getAllTask = (filter = filters.All) => {
 
 //* Default exports (Functions and variables)
 export default {
-    todayDate,
     initStore,
     getState,
     createTask,

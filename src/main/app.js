@@ -1,9 +1,6 @@
 // Imports
 import { setTodayDate, renderTasks } from './useCases/';
 import myStore from '../storage/store';
-import moment from 'moment'
-import 'moment/locale/es';
-moment.locale('es');
 
 //* Collection of html elements id's 
 export const idCollection = {
@@ -114,8 +111,5 @@ export const app = () => {
         if ( inputTimePiker.value == '' || inputDescriptionTask.value == null ) return;
         flowToCreateTask(inputTimePiker.value);
     });
-
-    const myDate = moment();
-    console.log(myDate.format('LL'));
 
 };
