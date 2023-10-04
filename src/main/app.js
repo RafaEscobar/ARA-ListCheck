@@ -44,6 +44,7 @@ export const app = () => {
     //!Assigments
     inputDescriptionTask.value = null;
     btnClock.setAttribute('disabled', 'true');
+    btnSaveTime.setAttribute('disabled', 'true');
     inputTimePiker.value = null;
 
     //! Variables
@@ -99,9 +100,14 @@ export const app = () => {
         }
     });
 
+    inputTimePiker.addEventListener('input', () => {
+        if ( inputTimePiker.value == '' ) return;
+        btnSaveTime.removeAttribute('disabled');
+    });
+
     //* Click event for the modal button, with which we save the time of the task
     btnSaveTime.addEventListener('click', () => {
-        
+        if ( inputTimePiker.value == '' || inputDescriptionTask.value == null ) return;
         console.log(inputTimePiker.value, inputDescriptionTask.value);
     });
 
