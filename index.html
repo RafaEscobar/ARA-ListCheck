@@ -12,18 +12,18 @@
     <div class="m-12 shadow-2xl rounded-xl">
         <div class="bg-[#c8ffff] h-screen w-full rounded-xl" id="content">
             <!--! Header  -->
-            <div class="flex flex-wrap py-4 px-8 justify-between bg-[#0063e0] text-white rounded-t-xl">
-                <div class="sm:w-auto text-center sm:text-left">
-                    <h1 class="text-4xl">Mi dia ☀︎</h1>
+            <div class="flex flex-wrap py-4 px-8 justify-between bg-[#0063e0] text-white rounded-t-xl gap-2">
+                <div class="sm:w-auto sm:text-left">
+                    <h1 class="text-4xl">ARA CheckList ☀︎</h1>
                     <h2 class="text-lg">Fecha: <span id="dateToday"></span></h2>
                 </div>
-                <div class="w-auto flex gap-4 flex-wrap sm:mt-0 mt-4 justify-center">
+                <div class="w-auto flex gap-4 flex-wrap justify-center">
                     <div class="flex flex-col items-center">
-                        <span class="text-lg font-semibold">Tareas completadas:</span>
+                        <span class="text-md font-semibold">Tareas completadas:</span>
                         <span class="font-bold">0</span>
                     </div>
                     <div class="flex flex-col items-center">
-                        <span class="text-lg font-semibold">Tareas pendientes:</span>
+                        <span class="text-md font-semibold">Tareas pendientes:</span>
                         <span class="font-bold">0</span>
                     </div>
                 </div>
@@ -46,14 +46,15 @@
                             </svg>
                         </a>
                         <!--! Clock  -->
-                        <button type="button" data-te-toggle="modal" data-te-target="#staticBackdrop"
-                            data-te-ripple-init data-te-ripple-color="light">
+                        <!-- <button type="button" data-te-toggle="modal" data-te-target="#staticBackdrop"
+                            data-te-ripple-init data-te-ripple-color="light" id="btnClock"
+                            class="disabled:text-gray-400">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
                                 stroke="currentColor" class="w-8 lg:w-12 hover:stroke-2">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                        </button>
+                        </button> -->
                     </div>
                 </div>
             </div>
@@ -98,16 +99,20 @@
     </div>
     <div>
         <!-- Modal -->
-        <div data-te-modal-init class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none px-4 md:px-0"
+        <div data-te-modal-init
+            class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none px-4 md:px-0"
             id="staticBackdrop" data-te-backdrop="static" data-te-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div data-te-modal-dialog-ref class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[370px]:mx-auto min-[370px]:mt-7 min-[370px]:max-w-[500px]">
-                <div class="min-[370px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none ">
+            <div data-te-modal-dialog-ref
+                class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[370px]:mx-auto min-[370px]:mt-7 min-[370px]:max-w-[500px]">
+                <div
+                    class="min-[370px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none ">
                     <!-- Modal head  -->
-                    <div class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 p-4 bg-[#0063e0]">
+                    <div
+                        class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 p-4 bg-[#0063e0]">
                         <!--Modal title-->
                         <h5 class="text-xl font-medium leading-normal text-white" id="staticBackdropLabel">
-                            Tiempo limite para la tarea
+                            ¿En cuántas horas expira tu tarea?
                         </h5>
                         <!--Close button-->
                         <button type="button"
@@ -119,27 +124,27 @@
                             </svg>
                         </button>
                     </div>
-
                     <!--Modal body-->
                     <div data-te-modal-body-ref class="relative p-4">
-                        <div class="relative" data-te-format24="true" id="timepicker-format" data-te-input-wrapper-init>
-                            <input type="text" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                                data-te-toggle="timepicker" id="form14" />
-                            <label for="form14" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-gray-700 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8]  peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none ">Establece una hora:</label>
+                        <p class="text-xs mb-2 text-gray-500">Nota: Puedes establecer máximo 24 horas como límite para una tarea.</p>
+                        <div class="relative" id="timepicker-inline-24" data-te-input-wrapper-init>
+                            <input type="text" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="inputTimePiker" data-te-toggle="timepicker" />
+                            <label for="inputTimePiker" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">Establece las horas</label>
                         </div>
                     </div>
 
                     <!--Modal footer-->
                     <div
                         class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+
                         <button type="button"
-                            class="inline-block rounded bg-[#c8ffff] px-6 pb-2 pt-2.5 text-xs font-semibold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-[#64ffff] "
+                            class="inline-block rounded bg-[#c8ffff] px-6 pb-2 pt-2.5 text-xs font-semibold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-[#64ffff]"
                             data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
                             Cancelar
                         </button>
                         <button type="button"
-                            class="ml-1 inline-block rounded bg-[#0095fa] px-6 pb-2 pt-2.5 text-xs font-semibold uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-[#0063e0] "
-                            data-te-ripple-init data-te-ripple-color="light">
+                            class="ml-1 inline-block rounded disabled:bg-gray-300 bg-[#0095fa] px-6 pb-2 pt-2.5 text-xs font-semibold uppercase leading-normal disabled:text-gray-500 text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-[#0063e0]"
+                            data-te-ripple-init data-te-modal-dismiss data-te-ripple-color="light" id="btnSaveTime">
                             Guardar
                         </button>
                     </div>

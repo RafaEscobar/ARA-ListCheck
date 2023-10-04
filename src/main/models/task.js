@@ -13,7 +13,7 @@ export class Task {
         this.id = identifier();
         this.description = description;
         this.done = false;
-        this.time = time;
+        this.time = time
         this.createAt = new Date();
     }
 }

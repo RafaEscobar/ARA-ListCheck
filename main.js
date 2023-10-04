@@ -10,5 +10,5 @@ app();
 initTE({ Dropdown, Ripple, Modal, Input, Timepicker });
 
 //* Variables for the TimePiker Input
-const picker = document.querySelector("#timepicker-format");
-const tpFormat24 = new Timepicker(picker, { format24: true, });
+const pickerInline2 = document.querySelector("#timepicker-inline-24");
+const timepickerMaxMin2 = new Timepicker(pickerInline2, { format24:true, inline: true, });

@@ -10,6 +10,9 @@ export const idCollection = {
     contentTaskId: '#contentTask',
     addBtn: '#addBtn',
     deleteBtn: '#deleteBtn',
+    btnClock: '#btnClock',
+    btnSaveTime: '#btnSaveTime',
+    inputTimePiker: '#inputTimePiker',
 };
 
 /**
@@ -33,30 +36,58 @@ export const app = () => {
     let inputDescriptionTask = document.querySelector(idCollection.inputTask);
     let addBtn = document.querySelector(idCollection.addBtn);
     let contentTask = document.querySelector(idCollection.contentTaskId);
+    let btnClock = document.querySelector(idCollection.btnClock);
+    let btnSaveTime = document.querySelector(idCollection.btnSaveTime);
+    let inputTimePiker = document.querySelector(idCollection.inputTimePiker);
+    
+
+    //!Assigments
+    inputDescriptionTask.value = null;
+    btnClock.setAttribute('disabled', 'true');
+    btnSaveTime.setAttribute('disabled', 'true');
+    inputTimePiker.value = null;
+
+    //! Variables
     let elementTask;
+
+    //! Functions
+    /**
+     * Function to execute the create Task flow
+     * 
+     * @param {string} time -Time of the task
+     * 
+     * @return void
+     */
+    const flowToCreateTask = (time = null) => {
+        myStore.createTask(inputDescriptionTask.value, time);
+        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
+        inputDescriptionTask.value = null;
+        btnClock.setAttribute('disabled', 'true');
+    }
+
 
     //! Event Listener
     //* Keydown event for inputTask - Create a new task in state.tasks
-    inputTask.addEventListener('keydown', (event) => {
-        if ( event.keyCode != 13 ) return;
+    inputTask.addEventListener('keyup', (event) => {
         if ( inputDescriptionTask.value.trim().length == 0 ) return;
+        if ( inputDescriptionTask.value.trim().length > 4 ) {
+            btnClock.removeAttribute('disabled');
+        } else if (inputDescriptionTask.value.trim().length <= 4 ) {
+            btnClock.setAttribute('disabled', 'true');
+        }
         
-        myStore.createTask(inputDescriptionTask.value);
-        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
-        inputDescriptionTask.value = null;
+        if ( event.keyCode != 13) return;
+        flowToCreateTask();
     });
 
     //* Click event for addBtn - Create a new task in state.tasks
     addBtn.addEventListener('click', (event) => {
         if ( inputTask.value.trim().length == 0 ) return;
-
-        myStore.createTask(inputDescriptionTask.value);
-        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
-        inputDescriptionTask.value = null;
+        flowToCreateTask();
     });
 
     //* Click event for div container of the task, with this delete and/or check the task
-    contentTask.addEventListener('click', (event) => {        
+    contentTask.addEventListener('click', (event) => {  
         if ( event.target.id == 'deleteBtn' ) {
             elementTask = event.target.closest('[data-id]');
             myStore.deleteTask(elementTask.getAttribute('data-id'));
@@ -67,6 +98,18 @@ export const app = () => {
         } else {
             return;
         }
+    });
+
+    //* Entry event for the modal timePicker
+    inputTimePiker.addEventListener('input', () => {
+        if ( inputTimePiker.value == '' ) return;
+        btnSaveTime.removeAttribute('disabled');
+    });
+
+    //* Click event for the modal button, with which we save the time of the task
+    btnSaveTime.addEventListener('click', () => {
+        if ( inputTimePiker.value == '' || inputDescriptionTask.value == null ) return;
+        flowToCreateTask(inputTimePiker.value);
     });
 
 };
