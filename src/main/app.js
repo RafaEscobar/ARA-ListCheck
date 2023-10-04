@@ -11,6 +11,8 @@ export const idCollection = {
     addBtn: '#addBtn',
     deleteBtn: '#deleteBtn',
     btnClock: '#btnClock',
+    btnSaveTime: '#btnSaveTime',
+    inputTimePiker: '#inputTimePiker',
 };
 
 /**
@@ -32,14 +34,20 @@ export const app = () => {
 
     //! References to elements
     let inputDescriptionTask = document.querySelector(idCollection.inputTask);
-    inputDescriptionTask.value = null;
     let addBtn = document.querySelector(idCollection.addBtn);
     let contentTask = document.querySelector(idCollection.contentTaskId);
-    let elementTask;
-    let clockFlag = false;
     let btnClock = document.querySelector(idCollection.btnClock);
-    btnClock.setAttribute('disabled', 'true');
+    let btnSaveTime = document.querySelector(idCollection.btnSaveTime);
+    let inputTimePiker = document.querySelector(idCollection.inputTimePiker);
+    
 
+    //!Assigments
+    inputDescriptionTask.value = null;
+    btnClock.setAttribute('disabled', 'true');
+    inputTimePiker.value = null;
+
+    //! Variables
+    let elementTask;
 
     //! Functions
     /**
@@ -89,6 +97,12 @@ export const app = () => {
         } else {
             return;
         }
+    });
+
+    //* Click event for the modal button, with which we save the time of the task
+    btnSaveTime.addEventListener('click', () => {
+        
+        console.log(inputTimePiker.value, inputDescriptionTask.value);
     });
 
 };
