@@ -21,6 +21,7 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
+    "moment": "^2.29.4",
     "tw-elements": "^1.0.0-rc.1",
     "uuid": "^9.0.0"
   }
