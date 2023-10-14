@@ -50,8 +50,7 @@ export const app = () => {
 
     //! Variables
     let elementTask;
-    let timeTask;
-    let timeNow;
+    let collectionTimes;
 
     //! Functions
     /**
@@ -106,10 +105,16 @@ export const app = () => {
     //* Entry event for the modal timePicker
     inputTimePiker.addEventListener('input', () => {
         if ( inputTimePiker.value == '' ) return;
-        timeTask = moment(`${inputTimePiker.value}`, "hh:mm:ss").format('h:mm:ss a');
-        timeNow = new moment().format('h:mm:ss a');
-        let myHour = '04:30:00';
-        console.log('04:);
+        collectionTimes = {
+            'task' : {
+                'hours': moment(`${inputTimePiker.value}`, "hh:mm:ss").hour(),
+                'minutes': moment(`${inputTimePiker.value}`, "hh:mm:ss").minutes(),
+            },
+            'now' : {
+                'hours': moment().hour(),
+                'minutes': moment().minutes(),
+            },
+        };
 
         btnSaveTime.removeAttribute('disabled');
     });
