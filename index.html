@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/checkIcon.png" type="image/x-icon">
     <title>ARA CheckList</title>
 </head>
+
 <body>
     <div class="m-12 shadow-2xl rounded-xl">
         <div class="bg-[#c8ffff] h-screen w-full rounded-xl" id="content">
@@ -124,10 +126,15 @@
                     </div>
                     <!--Modal body-->
                     <div data-te-modal-body-ref class="relative p-4">
-                        <p class="text-xs mb-2 text-gray-500">Nota: Puedes establecer máximo 24 horas como límite para una tarea.</p>
+                        <p class="text-xs mb-2 text-gray-500">Nota: Puedes establecer máximo 24 horas como límite para
+                            una tarea.</p>
                         <div class="relative" id="timepicker-inline-24" data-te-input-wrapper-init>
-                            <input type="text" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 text-gray-500" id="inputTimePiker" data-te-toggle="timepicker" />
-                            <label for="inputTimePiker" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none">Establece las horas</label>
+                            <input type="text"
+                                class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 text-gray-500"
+                                id="inputTimePiker" data-te-toggle="timepicker" />
+                            <label for="inputTimePiker"
+                                class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none">Establece
+                                las horas</label>
                         </div>
                     </div>
 
@@ -145,6 +152,35 @@
                             data-te-ripple-init data-te-modal-dismiss data-te-ripple-color="light" id="btnSaveTime">
                             Guardar
                         </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de error en hora -->
+        <div>
+            <!-- Button trigger modal -->
+            <button type="button" data-te-toggle="modal" data-te-target="#exampleFrameBottomModal" data-te-ripple-init id="btnTimeError" hidden></button>
+
+            <!-- Modal -->
+            <div data-te-modal-init
+                class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-hidden outline-none"
+                id="exampleFrameBottomModal" tabindex="-1" aria-labelledby="exampleFrameBottomModalLabel"
+                aria-hidden="true">
+                <div data-te-modal-dialog-ref
+                    class="pointer-events-none absolute bottom-0 w-full translate-y-[50px] opacity-0 transition-all duration-300 ease-in-out">
+                    <div
+                        class="pointer-events-auto relative flex w-full flex-col border-none bg-[#0063e0] text-white bg-clip-padding text-current shadow-lg outline-none ">
+                        <div class="relative flex-auto py-1" data-te-modal-body-ref>
+                            <div class="my-4 flex items-center justify-center">
+                                <p class="font-semibold" id="textTimeError"></p>
+                                <button type="button"
+                                    class="ml-2 inline-block rounded bg-[#C8FFFF] px-4 pb-1.5 pt-2 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:shadow-[#64FFFF] focus:outline-none focus:ring-0 "
+                                    data-te-modal-dismiss>
+                                    Ok.
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

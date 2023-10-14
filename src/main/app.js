@@ -14,6 +14,8 @@ export const idCollection = {
     btnClock: '#btnClock',
     btnSaveTime: '#btnSaveTime',
     inputTimePiker: '#inputTimePiker',
+    btnTimeError: '#btnTimeError',
+    textTimeError: '#textTimeError',
 };
 
 /**
@@ -40,7 +42,8 @@ export const app = () => {
     let btnClock = document.querySelector(idCollection.btnClock);
     let btnSaveTime = document.querySelector(idCollection.btnSaveTime);
     let inputTimePiker = document.querySelector(idCollection.inputTimePiker);
-    
+    let btnTimeError = document.querySelector(idCollection.btnTimeError);
+    let textTimeError = document.querySelector(idCollection.textTimeError);
 
     //!Assigments
     inputDescriptionTask.value = null;
@@ -104,6 +107,7 @@ export const app = () => {
 
     //* Entry event for the modal timePicker
     inputTimePiker.addEventListener('input', () => {
+        let messageError = 'La hora proporcionada ya paso... brinda una hora válida.';
         if ( inputTimePiker.value == '' ) return;
         collectionTimes = {
             'task' : {
@@ -115,21 +119,21 @@ export const app = () => {
                 'minutes': moment().minutes(),
             },
         };
-        console.log(collectionTimes);
+
         if (collectionTimes.now.hours > collectionTimes.task.hours) {
-            alert("La hora que estas indicando ya paso");
+            textTimeError.innerText = messageError;
+            btnTimeError.click();
             return;
         } 
         if (collectionTimes.now.hours == collectionTimes.task.hours) {
             if (collectionTimes.now.minutes >= collectionTimes.task.minutes) {
-                alert("La hora es correcta, pero los minutos dados ya han pasado");
+                textTimeError.innerText = messageError;
+            btnTimeError.click();
                 return;
             }
         }
-        alert("FELICIDADES!!!");
-        return;
 
-        // btnSaveTime.removeAttribute('disabled');
+        btnSaveTime.removeAttribute('disabled');
     });
 
     //* Click event for the modal button, with which we save the time of the task
