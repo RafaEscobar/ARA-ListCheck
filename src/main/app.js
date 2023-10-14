@@ -115,8 +115,21 @@ export const app = () => {
                 'minutes': moment().minutes(),
             },
         };
+        console.log(collectionTimes);
+        if (collectionTimes.now.hours > collectionTimes.task.hours) {
+            alert("La hora que estas indicando ya paso");
+            return;
+        } 
+        if (collectionTimes.now.hours == collectionTimes.task.hours) {
+            if (collectionTimes.now.minutes >= collectionTimes.task.minutes) {
+                alert("La hora es correcta, pero los minutos dados ya han pasado");
+                return;
+            }
+        }
+        alert("FELICIDADES!!!");
+        return;
 
-        btnSaveTime.removeAttribute('disabled');
+        // btnSaveTime.removeAttribute('disabled');
     });
 
     //* Click event for the modal button, with which we save the time of the task
