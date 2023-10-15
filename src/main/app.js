@@ -1,5 +1,5 @@
 // Imports
-import { setTodayDate, renderTasks } from './useCases/';
+import { setTodayDate, renderTasks, completeTimeTasks } from './useCases/';
 import myStore from '../storage/store';
 import moment from 'moment';
 
@@ -132,14 +132,17 @@ export const app = () => {
                 return;
             }
         }
-
         btnSaveTime.removeAttribute('disabled');
     });
 
     //* Click event for the modal button, with which we save the time of the task
     btnSaveTime.addEventListener('click', () => {
         if ( inputTimePiker.value == '' || inputDescriptionTask.value == null ) return;
-        flowToCreateTask(moment(`${inputTimePiker.value}`, "hh:mm:ss").format('h:mm:ss a'));
+        flowToCreateTask(moment(`${inputTimePiker.value}`, "hh:mm").format('hh:mm a'));
     });
+
+    setInterval(() => {
+        completeTimeTasks();
+    }, 6000);
 
 };

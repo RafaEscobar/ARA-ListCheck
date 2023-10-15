@@ -1,4 +1,5 @@
 // Imports
+import moment from "moment";
 import { Task } from "../main/models";
 
 //* Object filters
@@ -106,6 +107,32 @@ const getAllTask = (filter = filters.All) => {
     return state.tasks;
 }
 
+/**
+ * Function to get all tasks times
+ * 
+ * @return void
+ */
+const getAllTimeTasks = () => {
+    return state.tasks.filter( task => task.time != null);
+}
+
+/**
+ * Function to put on null the task time
+ * 
+ * @param string {taskId} -Task identifier
+ * 
+ * @return void
+ */
+const setNullTImeTask = (taskId) => {
+    state.tasks.forEach( task => {
+        if ( task.id == taskId ) {
+            task.time = null;
+        }
+    });
+    setLocalStorage();
+    console.log(state.tasks);
+}
+
 //* Default exports (Functions and variables)
 export default {
     initStore,
@@ -115,4 +142,6 @@ export default {
     deleteTask,
     getAllTask,
     initLocalStorage,
+    getAllTimeTasks,
+    setNullTImeTask,
 };
