@@ -187,12 +187,9 @@
             </div>
         </div>
 
+        <!-- Modal de tarea completada  -->
         <div>
-            <button type="button"
-                class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                data-te-toggle="modal" data-te-target="#rightTopModal" data-te-ripple-init data-te-ripple-color="light">
-                Top Right
-            </button>
+            <button type="button" data-te-toggle="modal" data-te-target="#rightTopModal" data-te-ripple-init id="btnCompleteTime" hidden></button>
             <!-- Modal top right-->
             <div data-te-modal-init
                 class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
@@ -204,7 +201,7 @@
                         <div
                             class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-info-600 p-4 dark:border-b dark:border-neutral-500 dark:bg-transparent">
                             <h5 class="text-xl font-medium leading-normal text-white" id="rightTopModalLabel font-">
-                                Tarea completada!!! 🥳 🥳 🥳
+                                ¡¡¡Se alcanzó el límite de la tarea!!! ⏳
                             </h5>
                             <button type="button"
                                 class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
@@ -225,9 +222,7 @@
                                 <p class=" text-white text-xl">
                                     Tarea:
                                 </p>
-                                <p class=" text-white">
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione, consectetur.
-                                </p>
+                                <p class=" text-white" id="titleTask"></p>
                             </div>
                         </div>
                     </div>

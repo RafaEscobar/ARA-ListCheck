@@ -123,14 +123,15 @@ const getAllTimeTasks = () => {
  * 
  * @return void
  */
-const setNullTImeTask = (taskId) => {
+const setCompleteForTime = (taskId) => {
     state.tasks.forEach( task => {
         if ( task.id == taskId ) {
             task.time = null;
+            task.done = true;
         }
     });
     setLocalStorage();
-    console.log(state.tasks);
+
 }
 
 //* Default exports (Functions and variables)
@@ -143,5 +144,5 @@ export default {
     getAllTask,
     initLocalStorage,
     getAllTimeTasks,
-    setNullTImeTask,
+    setCompleteForTime,
 };
