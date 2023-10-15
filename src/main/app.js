@@ -139,6 +139,7 @@ export const app = () => {
     btnSaveTime.addEventListener('click', () => {
         if ( inputTimePiker.value == '' || inputDescriptionTask.value == null ) return;
         flowToCreateTask(moment(`${inputTimePiker.value}`, "hh:mm").format('hh:mm a'));
+        inputTimePiker.value = null;
     });
 
     setInterval(() => {
