@@ -1,6 +1,7 @@
 // Imports
-import { setTodayDate, renderTasks } from './useCases/';
+import { setTodayDate, renderTasks, completeTimeTasks } from './useCases/';
 import myStore from '../storage/store';
+import moment from 'moment';
 
 //* Collection of html elements id's 
 export const idCollection = {
@@ -13,6 +14,8 @@ export const idCollection = {
     btnClock: '#btnClock',
     btnSaveTime: '#btnSaveTime',
     inputTimePiker: '#inputTimePiker',
+    btnTimeError: '#btnTimeError',
+    textTimeError: '#textTimeError',
 };
 
 /**
@@ -39,7 +42,8 @@ export const app = () => {
     let btnClock = document.querySelector(idCollection.btnClock);
     let btnSaveTime = document.querySelector(idCollection.btnSaveTime);
     let inputTimePiker = document.querySelector(idCollection.inputTimePiker);
-    
+    let btnTimeError = document.querySelector(idCollection.btnTimeError);
+    let textTimeError = document.querySelector(idCollection.textTimeError);
 
     //!Assigments
     inputDescriptionTask.value = null;
@@ -49,6 +53,7 @@ export const app = () => {
 
     //! Variables
     let elementTask;
+    let collectionTimes;
 
     //! Functions
     /**
@@ -102,14 +107,43 @@ export const app = () => {
 
     //* Entry event for the modal timePicker
     inputTimePiker.addEventListener('input', () => {
+        let messageError = 'La hora proporcionada ya paso... brinda una hora válida.';
         if ( inputTimePiker.value == '' ) return;
+        collectionTimes = {
+            'task' : {
+                'hours': moment(`${inputTimePiker.value}`, "hh:mm:ss").hour(),
+                'minutes': moment(`${inputTimePiker.value}`, "hh:mm:ss").minutes(),
+            },
+            'now' : {
+                'hours': moment().hour(),
+                'minutes': moment().minutes(),
+            },
+        };
+
+        if (collectionTimes.now.hours > collectionTimes.task.hours) {
+            textTimeError.innerText = messageError;
+            btnTimeError.click();
+            return;
+        } 
+        if (collectionTimes.now.hours == collectionTimes.task.hours) {
+            if (collectionTimes.now.minutes >= collectionTimes.task.minutes) {
+                textTimeError.innerText = messageError;
+            btnTimeError.click();
+                return;
+            }
+        }
         btnSaveTime.removeAttribute('disabled');
     });
 
     //* Click event for the modal button, with which we save the time of the task
     btnSaveTime.addEventListener('click', () => {
         if ( inputTimePiker.value == '' || inputDescriptionTask.value == null ) return;
-        flowToCreateTask(inputTimePiker.value);
+        flowToCreateTask(moment(`${inputTimePiker.value}`, "hh:mm").format('hh:mm a'));
+        inputTimePiker.value = null;
     });
+
+    setInterval(() => {
+        completeTimeTasks();
+    }, 6000);
 
 };
