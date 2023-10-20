@@ -112,7 +112,7 @@ export const app = () => {
     //* Entry event for the modal timePicker
     inputTimePiker.addEventListener('input', () => {
         if ( inputTimePiker.value == '' ) return;
-        let messageError = 'La hora proporcionada ya paso... brinda una hora válida.';
+        let messageError = 'La hora proporcionada ya paso... elije una hora válida.';
         collectionTimes = {
             'task' : {
                 'hours': moment(`${inputTimePiker.value}`, "hh:mm:ss").hour(),
