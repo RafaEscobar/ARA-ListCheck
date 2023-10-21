@@ -10,11 +10,11 @@
     transform: translate3d(0, 0, 0);
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 639px) {
     .checkbox-wrapper-15 .cbx span:first-child {
         position: relative;
-        width: 28px;   
-        height: 28px;
+        width: 24px;   
+        height: 24px;
         border-radius: 50%;
         transform: scale(1);
         vertical-align: middle;
@@ -22,12 +22,12 @@
         transition: all 0.2s ease;
     }
     .checkIcon {
-        width: 14px;
-        height: 12px;
+        width: 10px;
+        height: 8px;
     }
 }
 
-@media screen and (min-width: 481px) {
+@media screen and (min-width: 640px) {
     .checkbox-wrapper-15 .cbx span:first-child {
         position: relative;
         width: 38px;

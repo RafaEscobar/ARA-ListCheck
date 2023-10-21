@@ -70,6 +70,10 @@ export const app = () => {
         btnClock.setAttribute('disabled', 'true');
     }
 
+    btnClock.addEventListener('click', () => {
+        btnSaveTime.setAttribute('disabled', true);
+        inputTimePiker.value = '';
+    });
 
     //! Event Listener
     //* Keydown event for inputTask - Create a new task in state.tasks
@@ -107,8 +111,8 @@ export const app = () => {
 
     //* Entry event for the modal timePicker
     inputTimePiker.addEventListener('input', () => {
-        let messageError = 'La hora proporcionada ya paso... brinda una hora válida.';
         if ( inputTimePiker.value == '' ) return;
+        let messageError = 'La hora proporcionada ya paso... elije una hora válida.';
         collectionTimes = {
             'task' : {
                 'hours': moment(`${inputTimePiker.value}`, "hh:mm:ss").hour(),
@@ -128,7 +132,7 @@ export const app = () => {
         if (collectionTimes.now.hours == collectionTimes.task.hours) {
             if (collectionTimes.now.minutes >= collectionTimes.task.minutes) {
                 textTimeError.innerText = messageError;
-            btnTimeError.click();
+                btnTimeError.click();
                 return;
             }
         }

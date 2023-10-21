@@ -17,8 +17,6 @@ export const completeTimeTasks = () => {
             btnCompleteTime.click();
             myStore.setCompleteForTime(task.id);
             renderTasks("#contentTask", myStore.getAllTask());
-        } else {
-            console.log("NO hay tareas con tiempo exedido...");
         }
     });
 }
