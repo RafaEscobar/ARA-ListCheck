@@ -11,7 +11,7 @@ let content;
 const generateContentTask = (task) => {
     const contentTask = document.createElement('div');
     contentTask.innerHTML = `
-        <div class="checkbox-wrapper-15 my-4 flex justify-between items-center">
+        <div class="checkbox-wrapper-15 my-4 flex justify-between items-center ">
             <div>
                 <input class="inp-cbx" id="${task.id}" type="checkbox" style="display: none;" ${ task.done ? 'checked' : '' } />
                 <label class="cbx" for="${task.id}">
@@ -20,12 +20,12 @@ const generateContentTask = (task) => {
                       <polyline points="1 5 4 8 11 1"></polyline>
                     </svg>
                   </span>
-                  <span class="font-mono text-lg md:text-xl">${task.description}</span>
+                  <span class="font-mono text-[0.75rem] sm:text-lg md:text-xl">${task.description}</span>
                 </label>
             </div>
-            <div class="flex justify-between gap-4">
-              <span class="font-mono text-lg md:text-xl">${ (task.time != null) ? task.time : '' }</span>
-              <div class="cursor-pointer transform hover:scale-125 transition duration-600 w-6 h-6 md:w-8 md:h-8" >
+            <div class="flex justify-between items-center">
+              <span class="font-mono text-[0.75rem] sm:text-lg md:text-xl mr-1">${ (task.time != null) ? task.time : '' }</span>
+              <div class="cursor-pointer transform hover:scale-125 transition duration-600 w-6 h-6 md:w-8 md:h-8">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 md:w-8 md:h-8" id="deleteBtn">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>          
