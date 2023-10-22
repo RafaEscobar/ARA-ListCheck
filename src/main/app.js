@@ -35,7 +35,7 @@ export const app = () => {
         //* Pass the tasks in the LocalStorage to state
         myStore.initLocalStorage();
         //* Rendering the tasks in the state which in turn come from LocalStorage
-        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
+        renderTasks(idCollection.contentTaskId, myStore.getTasks());
     })();
 
     //! References to elements
@@ -71,7 +71,7 @@ export const app = () => {
      */
     const flowToCreateTask = (time = null) => {
         myStore.createTask(inputDescriptionTask.value, time);
-        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
+        renderTasks(idCollection.contentTaskId, myStore.getTasks());
         inputDescriptionTask.value = null;
         btnClock.setAttribute('disabled', 'true');
     }
@@ -108,7 +108,7 @@ export const app = () => {
         if ( event.target.id == 'deleteBtn' ) {
             elementTask = event.target.closest('[data-id]');
             myStore.deleteTask(elementTask.getAttribute('data-id'));
-            renderTasks(idCollection.contentTaskId, myStore.getAllTask());
+            renderTasks(idCollection.contentTaskId, myStore.getTasks());
         } else if ( event.target.type == 'checkbox' ) {
             elementTask = event.target.closest('[data-id]');
             myStore.checkTask(elementTask.getAttribute('data-id'));

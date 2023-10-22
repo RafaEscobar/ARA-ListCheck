@@ -103,7 +103,7 @@ const deleteTask = (taskId) => {
  * 
  * @return void
  */
-const getAllTask = (filter = filters.All) => {
+const getTasks = () => {
     return state.tasks;
 }
 
@@ -141,7 +141,7 @@ export default {
     createTask,
     checkTask,
     deleteTask,
-    getAllTask,
+    getTasks,
     initLocalStorage,
     getAllTimeTasks,
     setCompleteForTime,
