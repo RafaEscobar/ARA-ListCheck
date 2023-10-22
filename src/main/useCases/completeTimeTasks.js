@@ -16,7 +16,7 @@ export const completeTimeTasks = () => {
             titleTask.innerText = task.description;
             btnCompleteTime.click();
             myStore.setCompleteForTime(task.id);
-            renderTasks("#contentTask", myStore.getAllTask());
+            renderTasks("#contentTask", myStore.getTasks());
         }
     });
 }

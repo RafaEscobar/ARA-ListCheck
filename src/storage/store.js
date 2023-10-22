@@ -1,5 +1,4 @@
 // Imports
-import moment from "moment";
 import { Task } from "../main/models";
 
 //* Object filters
@@ -103,8 +102,18 @@ const deleteTask = (taskId) => {
  * 
  * @return void
  */
-const getAllTask = (filter = filters.All) => {
-    return state.tasks;
+const getTasks = (filter = filters.All) => {
+    switch (filter) {
+        case 'All':
+            return state.tasks;
+        case 'Pending':
+            return state.tasks.filter( task => !task.done );
+        case 'Completed':
+            return state.tasks.filter( task => task.done );
+        default: 
+            console.log("ERROR, El filtro dado es erroneo");
+        break;
+    }
 }
 
 /**
@@ -141,7 +150,7 @@ export default {
     createTask,
     checkTask,
     deleteTask,
-    getAllTask,
+    getTasks,
     initLocalStorage,
     getAllTimeTasks,
     setCompleteForTime,

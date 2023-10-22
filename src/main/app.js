@@ -16,6 +16,9 @@ export const idCollection = {
     inputTimePiker: '#inputTimePiker',
     btnTimeError: '#btnTimeError',
     textTimeError: '#textTimeError',
+    allFilter: '#allFilter',
+    pendingFilter: '#pendingFilter',
+    completedFIlter: '#completedFilter',
 };
 
 /**
@@ -32,7 +35,7 @@ export const app = () => {
         //* Pass the tasks in the LocalStorage to state
         myStore.initLocalStorage();
         //* Rendering the tasks in the state which in turn come from LocalStorage
-        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
+        renderTasks(idCollection.contentTaskId, myStore.getTasks());
     })();
 
     //! References to elements
@@ -44,6 +47,9 @@ export const app = () => {
     let inputTimePiker = document.querySelector(idCollection.inputTimePiker);
     let btnTimeError = document.querySelector(idCollection.btnTimeError);
     let textTimeError = document.querySelector(idCollection.textTimeError);
+    let filterAll = document.querySelector(idCollection.allFilter);
+    let filterPending = document.querySelector(idCollection.pendingFilter);
+    let filterCompleted = document.querySelector(idCollection.completedFIlter);
 
     //!Assigments
     inputDescriptionTask.value = null;
@@ -65,17 +71,19 @@ export const app = () => {
      */
     const flowToCreateTask = (time = null) => {
         myStore.createTask(inputDescriptionTask.value, time);
-        renderTasks(idCollection.contentTaskId, myStore.getAllTask());
+        renderTasks(idCollection.contentTaskId, myStore.getTasks());
         inputDescriptionTask.value = null;
         btnClock.setAttribute('disabled', 'true');
     }
 
+    //! Event Listener
+
+    //* Click event for btnClock - Put btnSaveTime as disabled and inputTimePiker as ''
     btnClock.addEventListener('click', () => {
         btnSaveTime.setAttribute('disabled', true);
         inputTimePiker.value = '';
     });
 
-    //! Event Listener
     //* Keydown event for inputTask - Create a new task in state.tasks
     inputTask.addEventListener('keyup', (event) => {
         if ( inputDescriptionTask.value.trim().length == 0 ) return;
@@ -100,7 +108,7 @@ export const app = () => {
         if ( event.target.id == 'deleteBtn' ) {
             elementTask = event.target.closest('[data-id]');
             myStore.deleteTask(elementTask.getAttribute('data-id'));
-            renderTasks(idCollection.contentTaskId, myStore.getAllTask());
+            renderTasks(idCollection.contentTaskId, myStore.getTasks());
         } else if ( event.target.type == 'checkbox' ) {
             elementTask = event.target.closest('[data-id]');
             myStore.checkTask(elementTask.getAttribute('data-id'));
@@ -109,7 +117,7 @@ export const app = () => {
         }
     });
 
-    //* Entry event for the modal timePicker
+    //* Input event for the modal inputTimePicker
     inputTimePiker.addEventListener('input', () => {
         if ( inputTimePiker.value == '' ) return;
         let messageError = 'La hora proporcionada ya paso... elije una hora válida.';
@@ -144,6 +152,21 @@ export const app = () => {
         if ( inputTimePiker.value == '' || inputDescriptionTask.value == null ) return;
         flowToCreateTask(moment(`${inputTimePiker.value}`, "hh:mm").format('hh:mm a'));
         inputTimePiker.value = null;
+    });
+
+    //* Click event for filter all tasks
+    filterAll.addEventListener('click', () => {
+        renderTasks(idCollection.contentTaskId, myStore.getTasks());
+    });
+
+    //* Click event for filter pending tasks
+    filterPending.addEventListener('click', () => {
+        renderTasks(idCollection.contentTaskId, myStore.getTasks('Pending'));
+    });
+
+    //* Click event for filter completed tasks
+    filterCompleted.addEventListener('click', () => {
+        renderTasks(idCollection.contentTaskId, myStore.getTasks('Completed'));
     });
 
     setInterval(() => {
