@@ -156,17 +156,17 @@ export const app = () => {
 
     //* Click event for filter all tasks
     filterAll.addEventListener('click', () => {
-        
+        renderTasks(idCollection.contentTaskId, myStore.getTasks());
     });
 
     //* Click event for filter pending tasks
     filterPending.addEventListener('click', () => {
-
+        renderTasks(idCollection.contentTaskId, myStore.getTasks('Pending'));
     });
 
     //* Click event for filter completed tasks
     filterCompleted.addEventListener('click', () => {
-
+        renderTasks(idCollection.contentTaskId, myStore.getTasks('Completed'));
     });
 
     setInterval(() => {
