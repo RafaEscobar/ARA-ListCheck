@@ -1,5 +1,5 @@
 // Imports
-import { setTodayDate, renderTasks, completeTimeTasks } from './useCases/';
+import { setTodayDate, renderTasks, completeTimeTasks, showStadistics } from './useCases/';
 import myStore from '../storage/store';
 import moment from 'moment';
 
@@ -19,6 +19,8 @@ export const idCollection = {
     allFilter: '#allFilter',
     pendingFilter: '#pendingFilter',
     completedFIlter: '#completedFilter',
+    completedTasksLabel: '#completedTasksLabel',
+    pendingTasksLabel: '#pendingTasksLabel',
 };
 
 /**
@@ -36,6 +38,7 @@ export const app = () => {
         myStore.initLocalStorage();
         //* Rendering the tasks in the state which in turn come from LocalStorage
         renderTasks(idCollection.contentTaskId, myStore.getTasks());
+        showStadistics(idCollection.completedTasksLabel, idCollection.pendingTasksLabel);
     })();
 
     //! References to elements
@@ -74,6 +77,7 @@ export const app = () => {
         renderTasks(idCollection.contentTaskId, myStore.getTasks());
         inputDescriptionTask.value = null;
         btnClock.setAttribute('disabled', 'true');
+        showStadistics(idCollection.completedTasksLabel, idCollection.pendingTasksLabel);
     }
 
     //! Event Listener
@@ -115,6 +119,7 @@ export const app = () => {
         } else {
             return;
         }
+        showStadistics(idCollection.completedTasksLabel, idCollection.pendingTasksLabel);
     });
 
     //* Input event for the modal inputTimePicker
