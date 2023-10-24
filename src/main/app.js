@@ -21,6 +21,10 @@ export const idCollection = {
     completedFIlter: '#completedFilter',
     completedTasksLabel: '#completedTasksLabel',
     pendingTasksLabel: '#pendingTasksLabel',
+    shitchAll: '#shitchAll',
+    btnCompletedAll: '#btnCompletedAll',
+    confirmCompletedTask: '#confirmCompletedTask',
+    cancelCompletedTask: '#cancelCompletedTask',
 };
 
 /**
@@ -53,6 +57,9 @@ export const app = () => {
     let filterAll = document.querySelector(idCollection.allFilter);
     let filterPending = document.querySelector(idCollection.pendingFilter);
     let filterCompleted = document.querySelector(idCollection.completedFIlter);
+    let switchAll = document.querySelector(idCollection.shitchAll);
+    let confirmCompletedTask = document.querySelector(idCollection.confirmCompletedTask);
+    let cancelCompletedTask = document.querySelector(idCollection.cancelCompletedTask);
 
     //!Assigments
     inputDescriptionTask.value = null;
@@ -172,6 +179,29 @@ export const app = () => {
     //* Click event for filter completed tasks
     filterCompleted.addEventListener('click', () => {
         renderTasks(idCollection.contentTaskId, myStore.getTasks('Completed'));
+    });
+
+    //* Change event for open modal to checked all task
+    switchAll.addEventListener('change', (event) => {
+        if (event.target.checked) {
+            document.querySelector(idCollection.btnCompletedAll).click();
+        } else {
+            myStore.setAllCompleted(false);
+        }
+        renderTasks(idCollection.contentTaskId, myStore.getTasks());
+        showStadistics(idCollection.completedTasksLabel, idCollection.pendingTasksLabel);
+    });
+
+    //* Click event for checked all tasks 
+    confirmCompletedTask.addEventListener('click', () => {
+        myStore.setAllCompleted(true);
+        renderTasks(idCollection.contentTaskId, myStore.getTasks());
+        showStadistics(idCollection.completedTasksLabel, idCollection.pendingTasksLabel);
+    });
+
+    //* Click event for cancel checked all tasks
+    cancelCompletedTask.addEventListener('click', () => {
+        switchAll.checked = false;
     });
 
     setInterval(() => {
