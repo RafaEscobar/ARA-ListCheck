@@ -144,7 +144,8 @@ const setCompleteForTime = (taskId) => {
 
 const setAllCompleted = (value) => {
     state.tasks.forEach( task => {
-        task.done = value
+        task.done = value;
+        if (task.time != null) task.time = null;
     });
     setLocalStorage();
 }
