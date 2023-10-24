@@ -21,6 +21,7 @@ export const idCollection = {
     completedFIlter: '#completedFilter',
     completedTasksLabel: '#completedTasksLabel',
     pendingTasksLabel: '#pendingTasksLabel',
+    shitchAll: '#shitchAll',
 };
 
 /**
@@ -53,6 +54,7 @@ export const app = () => {
     let filterAll = document.querySelector(idCollection.allFilter);
     let filterPending = document.querySelector(idCollection.pendingFilter);
     let filterCompleted = document.querySelector(idCollection.completedFIlter);
+    let shitchAll = document.querySelector(idCollection.shitchAll);
 
     //!Assigments
     inputDescriptionTask.value = null;
@@ -172,6 +174,14 @@ export const app = () => {
     //* Click event for filter completed tasks
     filterCompleted.addEventListener('click', () => {
         renderTasks(idCollection.contentTaskId, myStore.getTasks('Completed'));
+    });
+
+    shitchAll.addEventListener('change', (event) => {
+        if (event.target.checked) {
+            
+        } else {
+
+        }
     });
 
     setInterval(() => {
