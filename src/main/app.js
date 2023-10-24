@@ -178,10 +178,11 @@ export const app = () => {
 
     shitchAll.addEventListener('change', (event) => {
         if (event.target.checked) {
-            
+            myStore.setAllCompleted(true);
         } else {
-
+            myStore.setAllCompleted(false);
         }
+        renderTasks(idCollection.contentTaskId, myStore.getTasks());
     });
 
     setInterval(() => {

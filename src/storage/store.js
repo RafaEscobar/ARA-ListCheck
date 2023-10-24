@@ -140,7 +140,13 @@ const setCompleteForTime = (taskId) => {
         }
     });
     setLocalStorage();
+}
 
+const setAllCompleted = (value) => {
+    state.tasks.forEach( task => {
+        task.done = value
+    });
+    setLocalStorage();
 }
 
 //* Default exports (Functions and variables)
@@ -154,4 +160,5 @@ export default {
     initLocalStorage,
     getAllTimeTasks,
     setCompleteForTime,
+    setAllCompleted,
 };
