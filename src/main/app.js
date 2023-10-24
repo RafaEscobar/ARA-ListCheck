@@ -189,12 +189,14 @@ export const app = () => {
             myStore.setAllCompleted(false);
         }
         renderTasks(idCollection.contentTaskId, myStore.getTasks());
+        showStadistics(idCollection.completedTasksLabel, idCollection.pendingTasksLabel);
     });
 
     //* Click event for checked all tasks 
     confirmCompletedTask.addEventListener('click', () => {
         myStore.setAllCompleted(true);
         renderTasks(idCollection.contentTaskId, myStore.getTasks());
+        showStadistics(idCollection.completedTasksLabel, idCollection.pendingTasksLabel);
     });
 
     //* Click event for cancel checked all tasks
