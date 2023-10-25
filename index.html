@@ -112,7 +112,7 @@
         </div>
     </div>
     <div>
-        <!-- Modal -->
+        <!-- Modal Time Task-->
         <div data-te-modal-init
             class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none px-4 md:px-0"
             id="staticBackdrop" data-te-backdrop="static" data-te-keyboard="false" tabindex="-1"
@@ -126,7 +126,7 @@
                         class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 p-4 bg-[#0063e0]">
                         <!--Modal title-->
                         <h5 class="text-xl font-medium leading-normal text-white" id="staticBackdropLabel">
-                            ¿En cuántas horas expira tu tarea?
+                            ¿A que hora del día expira tu tarea?
                         </h5>
                         <!--Close button-->
                         <button type="button"
@@ -140,8 +140,7 @@
                     </div>
                     <!--Modal body-->
                     <div data-te-modal-body-ref class="relative p-4">
-                        <p class="text-xs mb-2 text-gray-500">Nota: Puedes establecer máximo 24 horas como límite para
-                            una tarea.</p>
+                        <p class="text-xs mb-2 text-gray-500">Nota: Debes ingresar una hora posterior a la hora actual.</p>
                         <div class="relative" id="timepicker-inline-24" data-te-input-wrapper-init>
                             <input type="text"
                                 class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 text-gray-500"
