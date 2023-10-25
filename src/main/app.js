@@ -131,6 +131,7 @@ export const app = () => {
 
     //* Input event for the modal inputTimePicker
     inputTimePiker.addEventListener('input', () => {
+        console.log("Hola");
         if ( inputTimePiker.value == '' ) return;
         let messageError = 'La hora proporcionada ya paso... elije una hora válida.';
         collectionTimes = {
@@ -147,12 +148,14 @@ export const app = () => {
         if (collectionTimes.now.hours > collectionTimes.task.hours) {
             textTimeError.innerText = messageError;
             btnTimeError.click();
+            btnSaveTime.setAttribute('disabled', 'true');
             return;
         } 
         if (collectionTimes.now.hours == collectionTimes.task.hours) {
             if (collectionTimes.now.minutes >= collectionTimes.task.minutes) {
                 textTimeError.innerText = messageError;
                 btnTimeError.click();
+                btnSaveTime.setAttribute('disabled', 'true');
                 return;
             }
         }
