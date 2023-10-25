@@ -48,10 +48,14 @@ export const renderTasks = (contentTaskId, tasks = []) => {
   if (!contentTaskId)
     throw new Error('No hay un Id para el contenedor de las tareas');
 
+    let btnAllGroup = document.querySelectorAll('.btnAll-group');
+
     if ( tasks.length == 0 ) {
-      let btnCompletedAll = document.querySelector('#contentBtnAll');
-      btnCompletedAll.setAttribute('hidden', '');
-      console.log(btnCompletedAll);
+      btnAllGroup[0].setAttribute('hidden', 'true');
+      btnAllGroup[1].setAttribute('hidden', 'true');
+    } else {
+      btnAllGroup[0].removeAttribute('hidden');
+      btnAllGroup[1].removeAttribute('hidden');
     }
     
   content = document.querySelector(contentTaskId);
