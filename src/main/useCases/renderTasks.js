@@ -45,13 +45,19 @@ const generateContentTask = (task) => {
  * @return void
  */
 export const renderTasks = (contentTaskId, tasks = []) => {
-    if (!contentTaskId)
-        throw new Error('No hay un Id para el contenedor de las tareas');
+  if (!contentTaskId)
+    throw new Error('No hay un Id para el contenedor de las tareas');
+
+    if ( tasks.length == 0 ) {
+      let btnCompletedAll = document.querySelector('#contentBtnAll');
+      btnCompletedAll.setAttribute('hidden', '');
+      console.log(btnCompletedAll);
+    }
     
-    content = document.querySelector(contentTaskId);
-    content.innerHTML = '';
+  content = document.querySelector(contentTaskId);
+  content.innerHTML = '';
     
-    tasks.forEach( task => {
-        content.append( generateContentTask(task) );
-    });
+  tasks.forEach( task => {
+      content.append( generateContentTask(task) );
+  });
 }
