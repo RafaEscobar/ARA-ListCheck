@@ -17,9 +17,11 @@
                     <div class="flex justify-center items-center gap-2 flex-wrap">
                         <h1 class="text-2xl md:text-4xl">ARA CheckList</h1>
                         <span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 md:w-10 md:h-10">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-                            </svg>                              
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 md:w-10 md:h-10">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                            </svg>
                         </span>
                     </div>
                     <h2 class="text-sm md:text-md mt-1">Fecha: <span id="dateToday"></span></h2>
@@ -69,7 +71,8 @@
             <!--! Dropdown  -->
             <div class="flex justify-between px-8">
                 <div class="relative" data-te-dropdown-ref>
-                    <button class="font-mono flex items-center whitespace-nowrap rounded-2xl px-2 py-1 sm:px-6 sm:py-2 text-black transition duration-150 ease-in-out hover:bg-[#64ffff] hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-[#c8ffff] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-[#c8ffff] active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none"
+                    <button
+                        class="font-mono flex items-center whitespace-nowrap rounded-2xl px-2 py-1 sm:px-6 sm:py-2 text-black transition duration-150 ease-in-out hover:bg-[#64ffff] hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-[#c8ffff] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-[#c8ffff] active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none"
                         type="button" id="dropdownMenuButton1" data-te-dropdown-toggle-ref aria-expanded="false"
                         data-te-ripple-init data-te-ripple-color="light">
                         <span class="mr-2">
@@ -100,7 +103,9 @@
                     </ul>
                 </div>
                 <div class="flex flex-col items-center" id="contentBtnAll">
-                    <label class="font-semibold text-sm sm:text-base text-center pl-[0.15rem] hover:cursor-pointer btnAll-group" for="shitchAll">Marcar todo</label>
+                    <label
+                        class="font-semibold text-sm sm:text-base text-center pl-[0.15rem] hover:cursor-pointer btnAll-group"
+                        for="shitchAll">Marcar todo</label>
                     <input class="switch btnAll-group" type="checkbox" role="switch" id="shitchAll" />
                 </div>
             </div>
@@ -113,8 +118,7 @@
     </div>
     <div>
         <!-- Modal Time Task-->
-        <div data-te-modal-init
-            class="fixed left-0 top-4 md:top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none px-4 md:px-0"
+        <div data-te-modal-init class="fixed left-0 top-4 md:top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none px-4 md:px-0"
             id="staticBackdrop" data-te-backdrop="static" data-te-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div data-te-modal-dialog-ref
@@ -140,27 +144,23 @@
                     </div>
                     <!--Modal body-->
                     <div data-te-modal-body-ref class="relative p-4">
-                        <p class="text-xs mb-2 text-gray-500">Nota: Debes ingresar una hora posterior a la hora actual.</p>
+                        <p class="text-xs mb-2 text-gray-500">Nota: Debes ingresar una hora posterior a la hora actual.
+                        </p>
                         <div class="relative" id="timepicker-inline-24" data-te-input-wrapper-init>
-                            <input type="text"
-                                class="text-sm md:text-base peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 text-gray-500 "
+                            <input type="text" class="text-sm md:text-base peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0 text-gray-500 "
                                 id="inputTimePiker" data-te-toggle="timepicker" />
-                            <label for="inputTimePiker"
-                                class="text-sm md:text-base pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none">Establece
+                            <label for="inputTimePiker" class="text-sm md:text-base pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none">Establece
                                 las horas</label>
                         </div>
                     </div>
 
                     <!--Modal footer-->
-                    <div
-                        class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 px-4 pt-2 pb-3 dark:border-opacity-50">
-                        <button type="button"
-                            class="inline-block rounded bg-[#c8ffff] px-6 pb-2 pt-2.5 text-xs font-semibold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-[#64ffff]"
+                    <div class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 px-4 pt-2 pb-3 dark:border-opacity-50">
+                        <button type="button" class="inline-block rounded bg-[#c8ffff] px-6 pb-2 pt-2.5 text-xs font-semibold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-[#64ffff]"
                             data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
                             Cancelar
                         </button>
-                        <button type="button"
-                            class="ml-1 inline-block rounded disabled:bg-gray-300 bg-[#0095fa] px-6 pb-2 pt-2.5 text-xs font-semibold uppercase leading-normal disabled:text-gray-500 text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-[#0063e0]"
+                        <button type="button" class="ml-1 inline-block rounded disabled:bg-gray-300 bg-[#0095fa] px-6 pb-2 pt-2.5 text-xs font-semibold uppercase leading-normal disabled:text-gray-500 text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-[#0063e0]"
                             data-te-ripple-init data-te-modal-dismiss data-te-ripple-color="light" id="btnSaveTime">
                             Guardar
                         </button>
@@ -169,19 +169,17 @@
             </div>
         </div>
 
-        <!-- Modal de error en hora -->
+
         <div>
-            <!-- Button trigger modal -->
-            <button type="button" data-te-toggle="modal" data-te-target="#exampleFrameBottomModal" data-te-ripple-init
-                id="btnTimeError" hidden></button>
+            <button type="button" data-te-toggle="modal" data-te-target="#exampleFrameTopModal" data-te-ripple-init
+                data-te-ripple-color="light" id="btnTimeError" hidden></button>
 
             <!-- Modal -->
             <div data-te-modal-init
-                class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-hidden outline-none"
-                id="exampleFrameBottomModal" tabindex="-1" aria-labelledby="exampleFrameBottomModalLabel"
-                aria-hidden="true">
+                class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+                id="exampleFrameTopModal" tabindex="-1" aria-labelledby="exampleFrameTopModalLabel" aria-hidden="true">
                 <div data-te-modal-dialog-ref
-                    class="pointer-events-none absolute bottom-0 w-full translate-y-[50px] opacity-0 transition-all duration-300 ease-in-out">
+                    class="pointer-events-none relative w-full translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out">
                     <div
                         class="pointer-events-auto relative flex w-full flex-col border-none bg-[#0063e0] text-white bg-clip-padding text-current shadow-lg outline-none ">
                         <div class="relative flex-auto py-1" data-te-modal-body-ref>
@@ -199,25 +197,21 @@
             </div>
         </div>
 
+
         <!-- Modal de tarea completada  -->
         <div>
-            <button type="button" data-te-toggle="modal" data-te-target="#rightTopModal" data-te-ripple-init
-                id="btnCompleteTime" hidden></button>
+            <button type="button" data-te-toggle="modal" data-te-target="#rightTopModal" data-te-ripple-init id="btnCompleteTime" hidden></button>
             <!-- Modal top right-->
-            <div data-te-modal-init
-                class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+            <div data-te-modal-init class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
                 id="rightTopModal" tabindex="-1" aria-labelledby="rightTopModalLabel" aria-hidden="true">
-                <div data-te-modal-dialog-ref
-                    class="pointer-events-none absolute top-4 md:top-0 right-4 md:right-7 h-auto w-64 md:w-full translate-x-[100%] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
-                    <div
-                        class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-[#0063e0] bg-clip-padding text-current shadow-lg outline-none ">
+                <div data-te-modal-dialog-ref class="pointer-events-none absolute top-4 md:top-0 right-4 md:right-7 h-auto w-64 md:w-full translate-x-[100%] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
+                    <div class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-[#0063e0] bg-clip-padding text-current shadow-lg outline-none ">
                         <div class="flex flex-shrink-0 items-center justify-between rounded-t-md p-4 dark:border-b ">
                             <h5 class="text-[.75rem] md:text-xl font-semibold leading-normal text-white"
                                 id="rightTopModalLabel ">
                                 ¡¡¡Se acabo el tiempo!!! ⏳
                             </h5>
-                            <button type="button"
-                                class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none ml-2"
+                            <button type="button" class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none ml-2"
                                 data-te-modal-dismiss aria-label="Close">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
@@ -246,47 +240,46 @@
         </div>
 
         <!-- Modal de confirmación de marcar todos como completados  -->
-        <div>            
+        <div>
             <button type="button" data-te-toggle="modal" data-te-target="#leftTopModal" data-te-ripple-init data-te-ripple-color="light" id="btnCompletedAll" hidden></button>
             <div data-te-modal-init class="fixed left-0 top-4 md:top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-                id="leftTopModal" tabindex="-1" aria-labelledby="leftTopModalLabel" aria-hidden="true" data-te-backdrop="static">
-                <div data-te-modal-dialog-ref
-                    class="pointer-events-none absolute left-7 h-auto w-56 md:w-full translate-x-[-100%] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
+                id="leftTopModal" tabindex="-1" aria-labelledby="leftTopModalLabel" aria-hidden="true"
+                data-te-backdrop="static">
+                <div data-te-modal-dialog-ref class="pointer-events-none absolute left-7 h-auto w-56 md:w-full translate-x-[-100%] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
                     <div class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none ">
-                        <div
-                            class="flex flex-shrink-0 items-center justify-between rounded-t-md py-2 px-4 md:p-4 border-b-2 border-neutral-300 border-opacity-100 ">
+                        <div class="flex flex-shrink-0 items-center justify-between rounded-t-md py-2 px-4 md:p-4 border-b-2 border-neutral-300 border-opacity-100 ">
                             <h5 class="text-sm md:text-xl font-medium leading-normal text-black" id="leftTopModalLabel">
                                 Confirmación
                             </h5>
-                            <button type="button"
-                                class="box-content rounded-none border-none text-black hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                            <button type="button" class="box-content rounded-none border-none text-black hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
                                 data-te-modal-dismiss aria-label="Close">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                    stroke="currentColor" class="h-6 w-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </button>
                         </div>
                         <div class="relative flex flex-auto flex-wrap justify-center p-2 md:p-4" data-te-modal-body-ref>
                             <span class="text-[#0063e0] [&>svg]:h-10 [&>svg]:w-8 md:[&>svg]:h-16 md:[&>svg]:w-14">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
-                                  </svg>                              
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+                                </svg>
                             </span>
                             <p class="px-4 text-center text-[0.75rem] md:text-base">
                                 ¿Estas seguro que deseas marcar todas las tareas como completadas?
                             </p>
                         </div>
-                        <div
-                            class="flex flex-shrink-0 flex-wrap items-center pr-4 py-2 md:py-4 justify-end rounded-b-md border-t-2 border-neutral-300 border-opacity-100 ">
-                            <button type="button"
-                                class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-[0.5rem] md:text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
-                                data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light" id="cancelCompletedTask">
+                        <div class="flex flex-shrink-0 flex-wrap items-center pr-4 py-2 md:py-4 justify-end rounded-b-md border-t-2 border-neutral-300 border-opacity-100 ">
+                            <button type="button" class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-[0.5rem] md:text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
+                                data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light"
+                                id="cancelCompletedTask">
                                 Cancelar
                             </button>
-                            <button type="button"
-                                class="ml-1 inline-block rounded bg-[#0063e0] px-6 pb-2 pt-2.5 text-[0.5rem] md:text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)]"
-                                data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light" id="confirmCompletedTask">
+                            <button type="button" class="ml-1 inline-block rounded bg-[#0063e0] px-6 pb-2 pt-2.5 text-[0.5rem] md:text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)]"
+                                data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light"
+                                id="confirmCompletedTask">
                                 Confirmar
                             </button>
                         </div>
